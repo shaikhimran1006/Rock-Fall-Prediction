@@ -1,0 +1,230 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles for the Rockfall Dashboard */
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f8fafc;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Dashboard specific styles */
+.dashboard-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.card {
+  @apply bg-white rounded-lg shadow-lg border border-gray-200;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  @apply shadow-xl;
+  transform: translateY(-2px);
+}
+
+.metric-card {
+  @apply p-6 bg-white rounded-lg shadow-md border-l-4;
+}
+
+.metric-value {
+  @apply text-2xl font-bold mb-2;
+}
+
+.metric-label {
+  @apply text-sm text-gray-600 uppercase tracking-wide;
+}
+
+/* Risk level indicators */
+.risk-low {
+  @apply border-green-500 bg-green-50;
+}
+
+.risk-medium {
+  @apply border-yellow-500 bg-yellow-50;
+}
+
+.risk-high {
+  @apply border-orange-500 bg-orange-50;
+}
+
+.risk-critical {
+  @apply border-red-500 bg-red-50;
+}
+
+/* Status indicators */
+.status-online {
+  @apply text-green-500;
+}
+
+.status-offline {
+  @apply text-red-500;
+}
+
+.status-warning {
+  @apply text-yellow-500;
+}
+
+/* Animations */
+@keyframes pulse-dot {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.pulse-dot {
+  animation: pulse-dot 2s infinite;
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-in {
+  animation: slide-in 0.5s ease-out;
+}
+
+/* Chart containers */
+.chart-container {
+  position: relative;
+  height: 400px;
+  width: 100%;
+}
+
+.chart-small {
+  height: 200px;
+}
+
+.chart-medium {
+  height: 300px;
+}
+
+.chart-large {
+  height: 500px;
+}
+
+/* Loading spinner */
+.spinner {
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Alert styles */
+.alert {
+  @apply p-4 rounded-md border-l-4;
+}
+
+.alert-success {
+  @apply bg-green-50 border-green-400 text-green-700;
+}
+
+.alert-warning {
+  @apply bg-yellow-50 border-yellow-400 text-yellow-700;
+}
+
+.alert-error {
+  @apply bg-red-50 border-red-400 text-red-700;
+}
+
+.alert-info {
+  @apply bg-blue-50 border-blue-400 text-blue-700;
+}
+
+/* Button styles */
+.btn {
+  @apply px-4 py-2 rounded-md font-medium transition-all duration-200;
+}
+
+.btn-primary {
+  @apply bg-blue-600 text-white hover:bg-blue-700 active:bg-blue-800;
+}
+
+.btn-secondary {
+  @apply bg-gray-600 text-white hover:bg-gray-700 active:bg-gray-800;
+}
+
+.btn-success {
+  @apply bg-green-600 text-white hover:bg-green-700 active:bg-green-800;
+}
+
+.btn-danger {
+  @apply bg-red-600 text-white hover:bg-red-700 active:bg-red-800;
+}
+
+/* Form styles */
+.form-input {
+  @apply w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500;
+}
+
+.form-label {
+  @apply block text-sm font-medium text-gray-700 mb-1;
+}
+
+.form-group {
+  @apply mb-4;
+}
+
+/* Navigation styles */
+.nav-link {
+  @apply px-4 py-2 rounded-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition-colors duration-200;
+}
+
+.nav-link-active {
+  @apply bg-blue-100 text-blue-700 font-medium;
+}
+
+/* Responsive design helpers */
+@media (max-width: 768px) {
+  .chart-container {
+    height: 300px;
+  }
+
+  .metric-card {
+    @apply p-4;
+  }
+
+  .metric-value {
+    @apply text-xl;
+  }
+}

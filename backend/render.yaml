@@ -1,0 +1,15 @@
+# Render Deployment Configuration
+# This file configures the backend deployment on Render
+
+services:
+  - type: web
+    name: rockfall-api
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn --bind 0.0.0.0:$PORT --workers 2 --timeout 120 app:app
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: PYTHONPATH
+        value: /opt/render/project/src
+    healthCheckPath: /health

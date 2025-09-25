@@ -1,0 +1,31 @@
+{
+  "feature_columns": [
+    "slope_angle",
+    "joint_spacing",
+    "joint_orientation",
+    "rock_strength",
+    "weathering_index",
+    "rainfall_24h",
+    "rainfall_7d",
+    "temperature_variation",
+    "freeze_thaw_cycles",
+    "wind_speed",
+    "vibration_intensity",
+    "blast_distance",
+    "excavation_height",
+    "support_density",
+    "previous_rockfall_30d",
+    "maintenance_days_since"
+  ],
+  "risk_categories": [
+    "Low",
+    "Medium",
+    "High",
+    "Critical"
+  ],
+  "training_accuracy": 0.863,
+  "trained_date": "2024-12-19T10:30:00",
+  "model_type": "RandomForestClassifier",
+  "n_samples": 5000,
+  "n_features": 16
+}
