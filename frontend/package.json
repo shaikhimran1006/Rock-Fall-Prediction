@@ -27,7 +27,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "CI=false react-scripts build",
+    "prebuild": "chmod +x ./node_modules/.bin/react-scripts || echo 'chmod not available'",
+    "build": "node build.js",
+    "build:original": "CI=false ./node_modules/.bin/react-scripts build",
     "serve": "serve -s build -l $PORT",
     "start:prod": "serve -s build -p $PORT",
     "start:server": "node server.js",
