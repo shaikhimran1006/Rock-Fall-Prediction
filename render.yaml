@@ -8,7 +8,8 @@ services:
     name: rockfall-api-backend
     env: python
     plan: free
-    buildCommand: cd backend && pip install -r requirements.txt
+    region: oregon
+    buildCommand: cd backend && pip install --upgrade pip && pip install -r requirements.txt
     startCommand: cd backend && gunicorn --bind 0.0.0.0:$PORT --workers 2 --timeout 120 app:app
     envVars:
       - key: FLASK_ENV
@@ -17,5 +18,7 @@ services:
         value: "False"
       - key: PYTHONPATH
         value: /opt/render/project/src
+      - key: PYTHON_VERSION
+        value: "3.11.9"
     healthCheckPath: /health
     autoDeploy: true
