@@ -3,6 +3,8 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+package-lock.json
+yarn.lock
 
 # Production builds
 build/
@@ -18,6 +20,7 @@ dist/
 .cache/
 frontend/.cache/
 frontend/node_modules/.cache/
+.npm/
 
 # Python
 __pycache__/

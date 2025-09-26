@@ -30,7 +30,8 @@ app = Flask(__name__)
 if os.environ.get('FLASK_ENV') == 'production':
     # Production CORS configuration
     CORS(app, origins=[
-        "https://your-frontend-domain.onrender.com",  # Update with your frontend domain
+        "https://rockfall-prediction-frontend.onrender.com",  # Update with your actual frontend domain
+        "https://rockfall-prediction-frontend-*.onrender.com",  # Allow any Render subdomain
         "http://localhost:3000",  # Allow local development
         "http://127.0.0.1:3000"   # Allow local development
     ])
