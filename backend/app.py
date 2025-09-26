@@ -12,6 +12,10 @@ import random
 import numpy as np
 from datetime import datetime, timedelta
 import logging
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
 
 # Add the model directory to Python path
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'model'))
@@ -21,7 +25,18 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+
+# Configure CORS for production and development
+if os.environ.get('FLASK_ENV') == 'production':
+    # Production CORS configuration
+    CORS(app, origins=[
+        "https://your-frontend-domain.onrender.com",  # Update with your frontend domain
+        "http://localhost:3000",  # Allow local development
+        "http://127.0.0.1:3000"   # Allow local development
+    ])
+else:
+    # Development CORS configuration
+    CORS(app)  # Enable CORS for all routes in development
 
 # Global variables for model and configuration
 predictor = None

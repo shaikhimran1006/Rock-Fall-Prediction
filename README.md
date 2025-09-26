@@ -5,50 +5,56 @@
 
 ## 🎯 Project Overview
 
-This prototype demonstrates a cost-effective, scalable software system that predicts rockfall risk in open-pit mines using AI/ML and presents real-time insights through an interactive web dashboard.
+This prototype demonstrates a cost-effective, scalable software system that predicts rockfall risk in open-pit mines using AI/ML and presents real-time insights through an interactive web dashboard with **multilingual support**.
 
-## 🚀 Quick Start
+## 🌍 Multilingual Support
 
-### Prerequisites
-- Python 3.8+ with pip
-- Node.js 16+ with npm
+The system supports **7 languages** for global accessibility:
+- 🇺🇸 **English** (Default)
+- 🇮🇳 **Hindi** (हिन्दी)
+- 🇮🇳 **Marathi** (मराठी)
+- 🇮🇳 **Tamil** (தமிழ்)
+- 🇮🇳 **Telugu** (తెలుగు)
+- 🇮🇳 **Bengali** (বাংলা)
+- 🇮🇳 **Gujarati** (ગુજરાતી)
 
-### 1. Start Backend API
+## 🚀 Deployment Options
+
+### 🏠 Local Development
 ```bash
-cd backend
-pip install flask flask-cors numpy pandas python-dotenv
-python app.py
-```
-🌐 API available at: http://localhost:5000
+# Backend
+cd backend && python app.py
 
-### 2. Start Frontend Dashboard
-```bash
-cd frontend
-npm install
-npm start
+# Frontend
+cd frontend && npm install --legacy-peer-deps && npm start
 ```
-🎛️ Dashboard opens at: http://localhost:3000
 
-**See [QUICKSTART.md](QUICKSTART.md) for detailed setup instructions**
+### ☁️ Production Deployment on Render
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com)
+
+**One-click deployment:** Use the `render.yaml` blueprint for automatic deployment of both frontend and backend services.
+
+📖 **[Complete Deployment Guide](DEPLOYMENT_GUIDE.md)**
 
 ## 📁 System Architecture
 
 ```
-� Rockfall Prediction System
+🏗️ Rockfall Prediction System
 ├── 📂 backend/          # Flask API + ML Model
-├── 📂 frontend/         # React Dashboard
+├── 📂 frontend/         # React Dashboard (Multilingual)
 ├── 📂 model/           # Trained ML model and sample data
 ├── 📄 QUICKSTART.md    # Detailed setup guide
-├── 📄 DEPLOYMENT.md    # Cloud deployment guide
+├── 📄 DEPLOYMENT_GUIDE.md # Complete deployment guide
+├── 📄 render.yaml      # Render deployment blueprint
 └── 🐳 docker-compose.yml # Container orchestration
 ```
 
 ## ✨ Features
 
 ### 📊 Live Monitoring
-- Real-time sensor data simulation
+- Real-time sensor data simulation with realistic patterns
 - Risk probability trending charts
-- System status monitoring
+- System status monitoring with multilingual interface
 - Interactive visualizations
 
 ### 🤖 Prediction Demo

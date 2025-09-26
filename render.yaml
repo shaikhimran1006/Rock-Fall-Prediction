@@ -1,0 +1,49 @@
+# Render Blueprint for Full-Stack Deployment
+# This file will deploy both backend and frontend services
+
+services:
+  # Backend API Service
+  - type: web
+    name: rockfall-api-backend
+    runtime: python
+    plan: free
+    buildCommand: cd backend && pip install -r requirements.txt
+    startCommand: cd backend && gunicorn --bind 0.0.0.0:$PORT --workers 2 --timeout 120 app:app
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: FLASK_DEBUG
+        value: "False"
+      - key: PYTHONPATH
+        value: /opt/render/project/src
+    healthCheckPath: /health
+    autoDeploy: true
+    branch: main
+    rootDir: .
+
+  # Frontend Static Site
+  - type: static
+    name: rockfall-prediction-frontend
+    buildCommand: cd frontend && npm install && npm run build
+    publishDir: frontend/build
+    pullRequestPreviewsEnabled: true
+    envVars:
+      - key: REACT_APP_API_URL
+        fromService:
+          type: web
+          name: rockfall-api-backend
+          property: url
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    headers:
+      - path: /*
+        name: X-Frame-Options
+        value: DENY
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+    autoDeploy: true
+    branch: main
+    rootDir: .

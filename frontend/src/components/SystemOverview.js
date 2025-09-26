@@ -421,7 +421,7 @@ const SystemOverview = () => {
                 <h4 className="font-medium mb-2">Prediction API Usage</h4>
                 <div className="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-sm">
                   <div># Rockfall prediction request</div>
-                  <div>curl -X POST "http://localhost:5000/predict" \</div>
+                  <div>curl -X POST "{process.env.REACT_APP_API_URL || 'http://localhost:5000'}/predict" \</div>
                   <div>&nbsp;&nbsp;-H "Content-Type: application/json" \</div>
                   <div>&nbsp;&nbsp;-d '&#123;"slope_angle": 45.5, "joint_spacing": 0.8, ...&#125;'</div>
                 </div>

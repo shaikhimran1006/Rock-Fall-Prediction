@@ -199,7 +199,7 @@ function App() {
                   </p>
                   <p className="text-sm text-red-300">
                     {t('common.verifyServerMessage')}{' '}
-                    <code className="bg-red-500/20 px-2 py-1 rounded font-mono">http://localhost:5000</code>
+                    <code className="bg-red-500/20 px-2 py-1 rounded font-mono">{process.env.REACT_APP_API_URL || 'http://localhost:5000'}</code>
                   </p>
                 </div>
               </div>
