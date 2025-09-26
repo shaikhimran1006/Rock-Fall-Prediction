@@ -7,14 +7,14 @@ console.log('🚀 Starting custom React build process...');
 process.env.CI = 'false';
 process.env.NODE_ENV = 'production';
 
-// Path to react-scripts
-const reactScriptsPath = path.join(__dirname, 'node_modules', '.bin', 'react-scripts');
+// Use the actual react-scripts JavaScript file
+const reactScriptsJS = path.join(__dirname, 'node_modules', 'react-scripts', 'scripts', 'build.js');
 
 console.log('🔨 Building React app...');
-console.log(`Using react-scripts at: ${reactScriptsPath}`);
+console.log(`Using react-scripts build script at: ${reactScriptsJS}`);
 
-// Spawn the build process
-const buildProcess = spawn('node', [reactScriptsPath, 'build'], {
+// Spawn the build process using Node.js directly on the build.js file
+const buildProcess = spawn('node', [reactScriptsJS], {
   stdio: 'inherit',
   env: process.env
 });

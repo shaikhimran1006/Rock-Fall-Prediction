@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: rockfall-frontend
+    env: node
+    plan: free
+    buildCommand: npm install && node build-direct.js
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: CI
+        value: false
+      - key: GENERATE_SOURCEMAP
+        value: false
+    healthCheckPath: /

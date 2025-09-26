@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "AI-Based Rockfall Prediction Dashboard for Open-Pit Mines",
   "private": true,
+  "engines": {
+    "node": "18.x",
+    "npm": "9.x"
+  },
   "dependencies": {
     "@heroicons/react": "^2.0.18",
     "@testing-library/jest-dom": "^5.17.0",
@@ -23,12 +27,17 @@
     "react-router-dom": "^6.18.0",
     "react-scripts": "5.0.1",
     "serve": "^14.2.1",
-    "tailwindcss": "^3.3.5"
+    "tailwindcss": "^3.3.5",
+    "webpack": "^5.88.0",
+    "webpack-cli": "^5.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "prebuild": "chmod +x ./node_modules/.bin/react-scripts || echo 'chmod not available'",
-    "build": "node build.js",
+    "build": "node build-direct.js",
+    "build:custom": "node build.js",
+    "build:webpack": "node webpack-build.js", 
+    "build:simple": "npx webpack --mode production --config node_modules/react-scripts/config/webpack.config.js",
     "build:original": "CI=false ./node_modules/.bin/react-scripts build",
     "serve": "serve -s build -l $PORT",
     "start:prod": "serve -s build -p $PORT",
